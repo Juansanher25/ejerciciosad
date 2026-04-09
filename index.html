@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Prácticos de Mecánica de Fluidos</title>
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --text-color: #333;
+            --bg-color: #f4f6f9;
+            --container-bg: #ffffff;
+            --accent-color: #1976d2;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            font-size: 2em;
+            text-align: center;
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 35px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .solucionario {
+            background-color: #f8f9fa;
+            border-left: 5px solid #4caf50;
+            padding: 25px;
+            margin-top: 50px;
+            border-radius: 0 8px 8px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .math-display {
+            overflow-x: auto;
+            padding: 10px 0;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.5em; }
+        }
+    </style>
+    <!-- Configuración e inclusión de MathJax para renderizar las fórmulas LaTeX -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Ejercicios Prácticos de Mecánica de Fluidos: Análisis Dimensional y Similitud</h1>
+    
+    <p>A continuación se presentan cinco problemas de análisis dimensional. Lee cuidadosamente cada enunciado, identifica las variables involucradas, sus dimensiones fundamentales (Masa $M$, Longitud $L$, Tiempo $T$) y aplica el Teorema $\Pi$ de Buckingham.</p>
+
+    <!-- Ejercicio 1 -->
+    <h3>Ejercicio 1: Arrastre hidrodinámico en un vehículo submarino</h3>
+    <p>Un equipo de ingenieros navales está diseñando un nuevo submarino autónomo de rescate y necesita estimar la fuerza de arrastre hidrodinámico ($F_D$) que experimentará el casco. Se asume que esta fuerza de arrastre depende de la velocidad de crucero del submarino ($V$), la densidad del agua de mar ($\rho$), la viscosidad dinámica del fluido ($\mu$) y una longitud característica del submarino, como su diámetro máximo ($D$).</p>
+    <img src="https://images.unsplash.com/photo-1588602097787-83ebce25a5db?auto=format&fit=crop&w=800&q=80" alt="Submarino navegando bajo el agua">
+    <p><strong>a)</strong> Aplique el Teorema $\Pi$ de Buckingham para encontrar los grupos adimensionales que caracterizan este fenómeno. Utilice $\rho$, $V$ y $D$ como variables repetidas.<br>
+    <strong>b)</strong> Se construye un modelo a escala 1:15 para ser probado en un túnel de agua dulce (asuma que la densidad y viscosidad del agua en el túnel son aproximadamente iguales a las del agua de mar para fines prácticos). Si el submarino real (prototipo) debe viajar a una velocidad de $5 \text{ m/s}$, ¿cuál debe ser la velocidad de prueba del modelo en el túnel para garantizar una similitud dinámica completa? Comente sobre la viabilidad práctica del resultado.</p>
+
+    <!-- Ejercicio 2 -->
+    <h3>Ejercicio 2: Caída de presión en un oleoducto</h3>
+    <p>Para el diseño de un nuevo oleoducto que transportará petróleo crudo a través de una región montañosa, es crítico determinar la caída de presión por unidad de longitud, denotada como $\Delta p_L$ (en $\text{Pa/m}$). La experiencia dicta que $\Delta p_L$ es una función del diámetro interno de la tubería ($D$), la velocidad media del flujo ($V$), la rugosidad absoluta de la pared interna ($\epsilon$), la densidad del crudo ($\rho$) y su viscosidad dinámica ($\mu$).</p>
+    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Corte transversal de tubería industrial">
+    <p><strong>a)</strong> Determine un conjunto adecuado de parámetros adimensionales ($\Pi$) que relacionen estas variables. Seleccione el diámetro ($D$), la velocidad media ($V$) y la densidad ($\rho$) como su conjunto de variables repetidas.</p>
+
+    <!-- Ejercicio 3 -->
+    <h3>Ejercicio 3: Rendimiento de un aerogenerador</h3>
+    <p>En el sector de las energías renovables, el diseño de turbinas eólicas requiere predecir cuánta energía se puede extraer del viento. La potencia mecánica extraída ($P$) por el rotor de un aerogenerador depende de la velocidad del viento libre ($V$), la densidad del aire ($\rho$), el diámetro del barrido del rotor ($D$) y la velocidad angular a la que giran las aspas ($\omega$).</p>
+    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80" alt="Aerogenerador moderno">
+    <p><strong>a)</strong> Determine los grupos adimensionales relevantes para el estudio de la potencia del aerogenerador mediante análisis dimensional.<br>
+    <strong>b)</strong> Suponga que un aerogenerador está operando en condiciones donde los parámetros adimensionales permanecen constantes (en su punto óptimo de diseño). Si la velocidad del viento en la zona se duplica repentinamente debido a un frente climático, ¿en qué factor aumentará teóricamente la potencia extraída?</p>
+
+    <!-- Ejercicio 4 -->
+    <h3>Ejercicio 4: Descarga sobre el vertedero de una presa</h3>
+    <p>Para garantizar la seguridad de una presa hidroeléctrica durante la temporada de lluvias, se diseña un vertedero de rebose. El caudal volumétrico ($Q$) de agua que fluye sobre el vertedero se modela en función de la carga hidráulica ($H$) —que es la altura del nivel del agua en el embalse por encima de la cresta del vertedero—, la longitud total del vertedero ($L$) y la aceleración de la gravedad ($g$). Los efectos de la viscosidad y la tensión superficial se consideran despreciables en este régimen de flujo.</p>
+    <img src="https://images.unsplash.com/photo-1545281488-825dfa1df835?auto=format&fit=crop&w=800&q=80" alt="Flujo de agua en vertedero de presa">
+    <p><strong>a)</strong> Encuentre la relación adimensional general para el caudal de descarga utilizando el Teorema $\Pi$ de Buckingham. (Sugerencia: Use $g$ y $H$ como variables repetidas).<br>
+    <strong>b)</strong> Se construye un modelo físico a escala 1:50 en el laboratorio de hidráulica de la universidad. Durante un ensayo que simula una tormenta extrema, el caudal medido en el modelo es de $0.02 \text{ m}^3\text{/s}$. ¿Qué caudal de descarga en $\text{m}^3\text{/s}$ debe esperar soportar el vertedero de la presa real bajo esas mismas condiciones?</p>
+
+    <!-- Ejercicio 5 -->
+    <h3>Ejercicio 5: Curva de rendimiento de una bomba centrífuga</h3>
+    <p>Un ingeniero de procesos necesita seleccionar una bomba centrífuga para una planta química. El aumento de presión generado por la bomba, $\Delta p$ (el cual se relaciona con la "carga" o "cabeza" de la bomba), depende del diámetro del impulsor ($D$), la velocidad de rotación del motor en radianes por segundo ($\omega$), el caudal volumétrico entregado ($Q$) y la densidad del fluido trasegado ($\rho$). Se asume flujo turbulento donde la viscosidad tiene un impacto secundario para el punto de diseño.</p>
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Bomba centrífuga industrial">
+    <p><strong>a)</strong> Realice el análisis dimensional seleccionando $\rho$, $\omega$ y $D$ como variables repetidas para encontrar los grupos adimensionales.<br>
+    <strong>b)</strong> Según las "Leyes de Afinidad" (que se derivan de este análisis), si para ajustar la demanda de la planta se decide instalar un variador de frecuencia y se aumenta la velocidad de rotación ($\omega$) al doble de su valor original para la misma bomba, ¿cómo se espera que cambie teóricamente el aumento de presión $\Delta p$?</p>
+
+    <div class="solucionario">
+        <h2 style="margin-top: 0;">SOLUCIONARIO</h2>
+        <p>A continuación se presentan las soluciones detalladas para cada uno de los ejercicios. Se utiliza el sistema básico de dimensiones $MLT$ (Masa, Longitud, Tiempo).</p>
+
+        <!-- Solución 1 -->
+        <h3>Solución Ejercicio 1</h3>
+        <p><strong>a) Análisis Dimensional</strong></p>
+        <p><strong>1. Identificar variables y sus dimensiones:</strong></p>
+        <ul>
+            <li>$F_D$ (Fuerza de arrastre) = $MLT^{-2}$</li>
+            <li>$V$ (Velocidad) = $LT^{-1}$</li>
+            <li>$\rho$ (Densidad) = $ML^{-3}$</li>
+            <li>$\mu$ (Viscosidad dinámica) = $ML^{-1}T^{-1}$</li>
+            <li>$D$ (Diámetro) = $L$</li>
+        </ul>
+        <p>Número total de variables, $n = 5$.</p>
+        
+        <p><strong>2. Dimensiones fundamentales:</strong> Hay $k = 3$ dimensiones involucradas ($M, L, T$). Por el Teorema de Buckingham, el número de grupos $\Pi$ es $j = n - k = 5 - 3 = 2$.</p>
+        
+        <p><strong>3. Variables repetidas:</strong> Se seleccionan $\rho, V, D$.</p>
+        
+        <p><strong>4. Desarrollo de los grupos $\Pi$:</strong></p>
+        <p><strong>Para $\Pi_1$ (usando $F_D$):</strong></p>
+        <div class="math-display">$$ \Pi_1 = F_D \cdot \rho^a \cdot V^b \cdot D^c $$</div>
+        <div class="math-display">$$ M^0L^0T^0 = (MLT^{-2})(ML^{-3})^a (LT^{-1})^b (L)^c $$</div>
+        <ul>
+            <li>$M$: $1 + a = 0 \implies a = -1$</li>
+            <li>$T$: $-2 - b = 0 \implies b = -2$</li>
+            <li>$L$: $1 - 3a + b + c = 0 \implies 1 - 3(-1) + (-2) + c = 0 \implies 1 + 3 - 2 + c = 0 \implies c = -2$</li>
+        </ul>
+        <div class="math-display">$$ \Pi_1 = \frac{F_D}{\rho V^2 D^2} \quad \text{(Coeficiente de Fuerza o Arrastre)} $$</div>
+
+        <p><strong>Para $\Pi_2$ (usando $\mu$):</strong></p>
+        <div class="math-display">$$ \Pi_2 = \mu \cdot \rho^a \cdot V^b \cdot D^c $$</div>
+        <div class="math-display">$$ M^0L^0T^0 = (ML^{-1}T^{-1})(ML^{-3})^a (LT^{-1})^b (L)^c $$</div>
+        <ul>
+            <li>$M$: $1 + a = 0 \implies a = -1$</li>
+            <li>$T$: $-1 - b = 0 \implies b = -1$</li>
+            <li>$L$: $-1 - 3a + b + c = 0 \implies -1 - 3(-1) - 1 + c = 0 \implies 1 + c = 0 \implies c = -1$</li>
+        </ul>
+        <div class="math-display">$$ \Pi_2 = \frac{\mu}{\rho V D} $$</div>
+        <p><em>Nota:</em> Generalmente se invierte este grupo por convención para obtener el <strong>Número de Reynolds</strong>: $Re = \frac{\rho V D}{\mu}$.</p>
+        <p><strong>Relación final:</strong> $\frac{F_D}{\rho V^2 D^2} = f\left(\frac{\rho V D}{\mu}\right)$</p>
+
+        <p><strong>b) Similitud Dinámica</strong></p>
+        <p>Para similitud dinámica estricta, evaluando el Número de Reynolds:</p>
+        <div class="math-display">$$ Re_m = Re_p \implies \frac{\rho_m V_m D_m}{\mu_m} = \frac{\rho_p V_p D_p}{\mu_p} $$</div>
+        <p>Asumiendo agua dulce y agua de mar muy similares cinemáticamente ($\rho_m/\mu_m \approx \rho_p/\mu_p$):</p>
+        <div class="math-display">$$ V_m D_m = V_p D_p $$</div>
+        <p>Dado que la escala es 1:15, $D_p / D_m = 15$.</p>
+        <div class="math-display">$$ V_m = V_p \left(\frac{D_p}{D_m}\right) = 5 \text{ m/s} \times 15 = 75 \text{ m/s} $$</div>
+        <p><strong>Comentario:</strong> Lograr una velocidad de $75 \text{ m/s}$ ($270 \text{ km/h}$) en un canal de agua es inviable por problemas de cavitación extrema, requerimientos de potencia y daños. Se recurre a similitud incompleta en la práctica.</p>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <!-- Solución 2 -->
+        <h3>Solución Ejercicio 2</h3>
+        <p><strong>a) Análisis Dimensional</strong></p>
+        <p><strong>1. Variables y dimensiones:</strong></p>
+        <ul>
+            <li>$\Delta p_L$ (Caída de presión / longitud) = $ML^{-2}T^{-2}$</li>
+            <li>$D$ (Diámetro) = $L$</li>
+            <li>$V$ (Velocidad) = $LT^{-1}$</li>
+            <li>$\epsilon$ (Rugosidad) = $L$</li>
+            <li>$\rho$ (Densidad) = $ML^{-3}$</li>
+            <li>$\mu$ (Viscosidad) = $ML^{-1}T^{-1}$</li>
+        </ul>
+        <p>$n = 6$. Dimensiones fundamentales: $k = 3$. Número de grupos $\Pi$: $j = 3$. Variables repetidas: $\rho, V, D$.</p>
+
+        <p><strong>Para $\Pi_1$ (usando $\Delta p_L$):</strong></p>
+        <div class="math-display">$$ \Pi_1 = \frac{\Delta p_L D}{\rho V^2} \quad \text{(Relacionado con factor de fricción)} $$</div>
+        <p><strong>Para $\Pi_2$ (usando $\mu$):</strong></p>
+        <div class="math-display">$$ \Pi_2 = \frac{\mu}{\rho V D} \implies Re = \frac{\rho V D}{\mu} $$</div>
+        <p><strong>Para $\Pi_3$ (usando $\epsilon$):</strong> Como $\epsilon$ solo tiene longitud, dividiendo por la longitud repetida $D$ lo hace adimensional.</p>
+        <div class="math-display">$$ \Pi_3 = \frac{\epsilon}{D} \quad \text{(Rugosidad Relativa)} $$</div>
+        <p><strong>Relación final:</strong> $\frac{\Delta p_L D}{\rho V^2} = f\left(\frac{\rho V D}{\mu}, \frac{\epsilon}{D}\right)$</p>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <!-- Solución 3 -->
+        <h3>Solución Ejercicio 3</h3>
+        <p><strong>a) Análisis Dimensional</strong></p>
+        <p><strong>1. Variables y dimensiones:</strong></p>
+        <ul>
+            <li>$P$ (Potencia) = $ML^2T^{-3}$</li>
+            <li>$V$ (Velocidad viento) = $LT^{-1}$</li>
+            <li>$\rho$ (Densidad) = $ML^{-3}$</li>
+            <li>$D$ (Diámetro) = $L$</li>
+            <li>$\omega$ (Vel. Angular) = $T^{-1}$</li>
+        </ul>
+        <p>$n = 5$, $k = 3$. Grupos $\Pi = 2$. Variables repetidas: $\rho, V, D$.</p>
+
+        <p><strong>Para $\Pi_1$ (usando $P$):</strong></p>
+        <div class="math-display">$$ M^0L^0T^0 = (ML^2T^{-3})(ML^{-3})^a (LT^{-1})^b (L)^c \implies \Pi_1 = \frac{P}{\rho V^3 D^2} \quad (C_P) $$</div>
+        <p><strong>Para $\Pi_2$ (usando $\omega$):</strong></p>
+        <div class="math-display">$$ M^0L^0T^0 = (T^{-1})(ML^{-3})^a (LT^{-1})^b (L)^c \implies \Pi_2 = \frac{\omega D}{V} \quad (\lambda) $$</div>
+
+        <p><strong>b) Aumento de potencia teórica</strong></p>
+        <p>Si el Coeficiente de Potencia ($\Pi_1$) es constante: $P = C \cdot \rho D^2 V^3$. Observamos que $P \propto V^3$.</p>
+        <p>Si la velocidad se duplica ($V_{nueva} = 2V$):</p>
+        <div class="math-display">$$ P_{nueva} \propto (2V)^3 = 8V^3 $$</div>
+        <p>La potencia aumentará en un <strong>factor de 8</strong>.</p>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <!-- Solución 4 -->
+        <h3>Solución Ejercicio 4</h3>
+        <p><strong>a) Análisis Dimensional</strong></p>
+        <ul>
+            <li>$Q$ (Caudal) = $L^3T^{-1}$</li>
+            <li>$H$ (Carga hidráulica) = $L$</li>
+            <li>$L$ (Longitud vertedero) = $L$</li>
+            <li>$g$ (Gravedad) = $LT^{-2}$</li>
+        </ul>
+        <p>Dimensiones $L, T \implies k=2, n=4$. Grupos $\Pi = 2$. Variables repetidas: $g, H$.</p>
+        <p><strong>Para $\Pi_1$ (usando $Q$):</strong></p>
+        <div class="math-display">$$ M^0L^0T^
